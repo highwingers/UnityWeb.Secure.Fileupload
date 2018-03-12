@@ -1,0 +1,35 @@
+﻿@model UnityWebGroup.SecureFileUpload.Models.Users
+
+@{
+    ViewBag.Title = "User Home";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+
+
+
+
+    </dl>
+</div>
+

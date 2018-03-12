@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div class="header-section">
+                <div class="header-column">
+                    <div id="logo">Welcome to Secure CRM.</div>
+                </div>
+                <div class="header-column">
+                    <div class="header-section-right-menu">
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Login", "Login", "User");
+                        }
+
+                        else
+                        {
+                            @Html.ActionLink("Log out " + @HttpContext.Current.User.Identity.Name, "Logoff", "User")
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="body">
+            <div class="body-column-left">
+                <ul class="left-nav">
+                    <li>@Html.ActionLink("View Profile", "index", "home")</li>
+                    <li>@Html.ActionLink("Edit Profile", "edit", "user")</li>
+                </ul>
+            </div>
+            <div class="body-column-right">
+                <div id="title">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+                <div class="main-content">
+                    @RenderBody()
+                </div>
+
+                <div id="footer_inner">
+                    Copyright 2018
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+</html>

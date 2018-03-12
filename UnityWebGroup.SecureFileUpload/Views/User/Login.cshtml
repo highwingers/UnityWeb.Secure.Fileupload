@@ -1,0 +1,40 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+
+}
+
+@model UnityWebGroup.SecureFileUpload.Models.Users
+
+
+
+<div class="container">
+
+    <div class="err-message">
+        @ViewBag.message
+    </div>
+
+    <form action="@Url.Action("Login","User")" class="form-signin" method="post">
+        @Html.AntiForgeryToken()
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+        <label for="inputPassword" class="sr-only">Password</label>
+        @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.remember) Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+    </form>
+    <div>
+        <br />
+        @Html.ActionLink("Register here", "Register", "User")
+    </div>
+
+
+</div> 
