@@ -5,6 +5,8 @@ using System.Web;
 
 namespace UnityWebGroup.SecureFileUpload.Models
 {
+
+    // Maps to DB
     public class Users
     {
         public int id { get; set; }
